@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <input type="text" v-model="msg01">
+        <p v-text="msg02"> 在这里输入看不到我 </p>
+        <div v-html="msg03"> 我盲猜这里也看不到</div>
+        <input type="text" v-bind:value='msg04'>
+
+        <p>{{msg05}}</p>
+        <button v-on:click="showInfo"> 点我！快点我！</button>
+        <div v-for="(item,key) in list" data-id="key">
+            索引：{{key}}，元素内容：{{item}}
+        </div>
+
+        <button v-on:click="isshow=!isshow">显示/隐藏</button>
+        <div v-if="isshow" style="background-color:#ccc">
+            我是v-if
+        </div>
+
+        <button v-on:click="isShow=!isShow">显示/隐藏</button>
+        <div v-show="isShow" style="background-color:#ccc">
+            我是v-show
+        </div>
+
+    </div>
+    <script>
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                msg01: 'v-model指令',
+                msg02: '我是v-text',
+                msg03: '<h3>我是v-html 啊</h3>',
+                msg04: '我是v-bind',
+                msg05: "请单击按钮",
+                list: [1, 2, 3],
+                isshow: true,
+                isShow: true
+            },
+            methods: {
+                showInfo() {
+                    this.msg05 = '我是v-on指令'
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

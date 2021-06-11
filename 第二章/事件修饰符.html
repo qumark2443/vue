@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2.3.2</title>
+    <script src="js/vue.js"></script>
+</head>
+
+<body>
+    <div id="app01">
+        <div v-on:click="doParent">
+            <button v-on:click="doThis">事件冒泡</button>
+            <button v-on:click.stop="doThis">阻止事件冒泡</button>
+        </div>
+
+        <a href="https://www.baidu.com" v-on:click.prevent>阻止默认行为</a>
+        <br>
+        <a href="https://www.baidu.com">不阻止</a>
+
+        <div v-on:click.caoture="doParent">
+            <button v-on:click="doThis"> 事件捕获</button>
+        </div>
+
+        <div class="Odiv01" v-on:click.self='doParent'>a
+            <div class="Odiv02" v-on:click='doThis'>b</div>
+        </div>
+        <div class="Odiv01" v-on:click='doParent'>c
+            <div class="Odiv02" v-on:click.self='doThis'>d</div>
+        </div>
+
+        <button v-on:click.once="doThis"> 我只执行一次</button>
+    </div>
+    <script>
+        var vm = new Vue({
+            el: "#app01",
+            methods: {
+                doParent() {
+                    console.log('我是父元素单击事件')
+                },
+                doThis() {
+                    console.log('我是被单击元素事件')
+                }
+
+            }
+        })
+    </script>
+    <style>
+        .Odiv01 {
+            width: 80px;
+            height: 80px;
+            background: #aaa;
+            margin: 5px;
+        }
+        
+        .Odiv02 {
+            width: 50px;
+            height: 50px;
+            background: #ccc;
+        }
+    </style>
+</body>
+
+</html>
