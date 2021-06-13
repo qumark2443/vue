@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2.4.3</title>
+    <script src="../js/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <p> {{ title}}</p>
+        <my-component> </my-component>
+    </div>
+    <template id="tmp1">
+        <p>{{title}}</p>
+    </template>
+    <script>
+        Vue.component('my-component', {
+            template: '#tmp1',
+            data() {
+                return {
+                    title: '我是组件内的title'
+                }
+            }
+        })
+        var vm = new Vue({
+            el: "#app",
+            data: {
+                title: '我是vm实例的title'
+            }
+        })
+    </script>
+</body>
+
+</html>
