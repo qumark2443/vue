@@ -30,6 +30,15 @@
         var vm = new Vue({
             el: "#app"
         })
+        var com1 = {
+            template: "<p>我是一个vm实例的局部组件</p>"
+        }
+        var vm01 = new Vue({
+            el: "#app01",
+            components: {
+                myComponent: com01
+            }
+        })
     </script>
 </body>
 
