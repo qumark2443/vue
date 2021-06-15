@@ -6,18 +6,23 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <script src="../js/vue.js"></script>
+    <script src="../../js/vue.js"></script>
 </head>
 
 <body>
-    <div id="app">xxx:{{title}}</div>
+    <div id="app">
+        <div>{{a}}</div>
+        <div>{{obj.b}}</div>
+    </div>
     <script>
         var vm = new Vue({
             el: "#app",
             data: {
-                title: "zhangs"
+                a: "我是根级响应式属性a",
+                obj: {}
             }
         })
+        Vue.set(vm.obj, 'b', '我是Vue.set添加的响应式属性obj.b')
     </script>
 </body>
 

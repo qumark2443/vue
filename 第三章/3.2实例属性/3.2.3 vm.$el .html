@@ -6,18 +6,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <script src="../js/vue.js"></script>
+    <script src="../../js/vue.js"></script>
 </head>
 
 <body>
-    <div id="app">xxx:{{title}}</div>
+    <div id="app">
+        <p>我是根标签</p>
+    </div>
     <script>
         var vm = new Vue({
-            el: "#app",
-            data: {
-                title: "zhangs"
-            }
+            el: '#app'
         })
+        vm.$el.innerHTML = '<div>我是替换之后的div标签</div>'
     </script>
 </body>
 

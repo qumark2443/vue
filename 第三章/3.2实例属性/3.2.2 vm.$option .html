@@ -6,16 +6,23 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <script src="../js/vue.js"></script>
+    <script src="../../js/vue.js"></script>
 </head>
 
 <body>
-    <div id="app">xxx:{{title}}</div>
+    <div id="app">
+        <p>{{base}}</p>
+        <p>{{noBase}}</p>
+    </div>
     <script>
         var vm = new Vue({
-            el: "#app",
+            el: '#app',
+            customOption: '我是自定义数据',
             data: {
-                title: "zhangs"
+                base: '我是基础数据'
+            },
+            created() {
+                this.noBase = this.$options.customOption
             }
         })
     </script>
