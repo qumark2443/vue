@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../../js/vue.js"></script>
+    <style type="text/css">
+        /* 图形初始状态 */
+        
+        .chart {
+            width: 200px;
+            height: 50px;
+            background-color: orange;
+        }
+        /* 进入和离开的状态 */
+        
+        .box-enter-active,
+        .box-leave-active {
+            transition: width 1s;
+        }
+        /* 进入的初始状态和离开的结束状态 */
+        
+        .box-enter,
+        .box-leave-to {
+            width: 0px;
+        }
+        /* 进入的结束状态和离开的初始状态 */
+        
+        .box.leave,
+        .box-enter-to {
+            width: 200px;
+        }
+    </style>
+
+    <body>
+        <div id="app">
+            <button @click='toggle'>改变图形宽度</button>
+            <transition name="box">
+                <div class="chart" v-if='show'></div>
+            </transition>
+        </div>
+        <script>
+            var vm = new Vue({
+                el: '#app',
+                data: {
+                    show: true,
+                },
+                methods: {
+                    toggle() {
+                        this.show = !this.show
+                    }
+                }
+            })
+        </script>
+    </body>
+
+</html>
