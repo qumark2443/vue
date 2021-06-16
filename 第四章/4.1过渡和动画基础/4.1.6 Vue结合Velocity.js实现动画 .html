@@ -26,9 +26,9 @@
             },
             methods: {
                 beforeEnter(el) {
-                    el.style.opacity = 0 //透明度为0
-                    el.style.transformOrigin = 'left' //设置旋转元素的基点位置
-                    elstyle.color = 'red' //颜色为红色
+                    el.style.opacity = 0 
+                    el.style.transformOrigin = 'left' 
+                    el.style.color = 'red' 
                 },
                 enter(el, done) {
                     Velocity(el, {
@@ -36,7 +36,7 @@
                             fontSize: '1.4em'
                         }, {
                             duration: 300
-                        }) //duration为动画执行时间
+                        }) 
                     Velocity(el, {
                         fontSize: '1em'
                     }, {
