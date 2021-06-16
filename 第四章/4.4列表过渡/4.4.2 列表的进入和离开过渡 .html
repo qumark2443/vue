@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../../js/vue.js">
+    </script>
+    <!-- <style type="text/css">
+        .list-item {
+            display: inline-block;
+            margin-right: 10px;
+            background-color: red;
+            border-radius: 50%;
+            width: 25px;
+            height: 25px;
+            text-align: center;
+            line-height: 25px;
+            color: #fff;
+        }
+        
+        .list-enter-active,
+        .list-leave-active {
+            transition: all 1s;
+        }
+        
+        .list-enter,
+        .list-leave-to {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+    </style> -->
+    <style type="text/css">
+        .list-item {
+            display: inline-block;
+            margin-right: 10px;
+            background-color: red;
+            border-radius: 50%;
+            width: 25px;
+            height: 25px;
+            text-align: center;
+            line-height: 25px;
+            color: #fff;
+        }
+        
+        .list-enter-active,
+        .list-leave-active {
+            transition: all 1s;
+        }
+        
+        .list-leave-active {
+            transition: all 1s;
+            position: absolute;
+        }
+        
+        .list-enter,
+        .list-leave-to {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        
+        list-move {
+            transition: transform 1s;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <button @click="add">随机插入一个数字</button>
+        <button @click="remove">随机移除一个数字</button>
+        <transition-group name="list" tag="p">
+            <span v-for="item in items" :key="item" class="list-item">
+                {{item}}
+            </span>
+        </transition-group>
+    </div>
+    <script>
+        var vm = new Vue({
+            el: "#app",
+            data: {
+                items: [1, 2, 3, 4, 5],
+                nextNum: 6
+            },
+            methods: {
+                randomIndex() {
+                    return Math.floor(Math.random() * this.items.length)
+                },
+                add() {
+                    this.items.splice(this.randomIndex(), 0, this.nextNum++)
+                },
+                remove() {
+                    this.items.splice(this.randomIndex(), 1)
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

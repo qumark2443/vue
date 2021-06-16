@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../../js/vue.js"></script>
+    <style type="text/css">
+        .fade-enter,
+        .fade-leave-to {
+            opacity: 0;
+        }
+        
+        .fade-enter-active,
+        .fade-leave-active {
+            transition: opacity .5s
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <transition name="fade" mode="out-in">
+            <button :key="isOff" @click="isOff=!isOff">{{isOff?'Off':'On'}}</button>
+        </transition>
+    </div>
+    <script>
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                isOff: false
+            }
+        })
+    </script>
+</body>
+
+</html>
