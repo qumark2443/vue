@@ -7,24 +7,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script src="../../js/vue.js"></script>
+    <!-- <script src="https://unpkg.com/vue@next"></script> -->
 </head>
 
 <body>
     <div id="app">
-        <router-link to="/user?id=10&name=admin">登录</router-link>
+        <router-link to="/user/10/admin">登录</router-link>
         <router-view></router-view>
     </div>
     <script>
         var user = {
-            template: '<h3>id:{{this.$route.query.id}}' + 'name:{{$route.query.name}}</h3>',
-            created() {
+            template: '<h3>id:{{$route.params.id}}' + 'name:{{$route.params.name}}</h3>',
+            created(){
                 console.log(this.$route)
             }
         }
         var router = new VueRouter({
             routes: [{
-                path: '/user',
-                component: user 
+                path: '/user/:id/:name',
+                component: user
             }]
         })
         var vm = new Vue({
@@ -32,5 +33,6 @@
             router
         })
     </script>
+</body>
 
 </html>
