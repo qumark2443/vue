@@ -1,4 +1,0 @@
-a=input()
-b='san'
-c=a+' '+b
-print(c)
